@@ -77,14 +77,17 @@ const Comp: React.FC = () => {
     // 拿着currentRoute.pathname跟items数组的每一项的children的key值进行对比,如果找到了相等了,就要他上一级的key
     // 这个key给到openKeys数组的元素,作为初始值
 
+    let firstOpenKey:string = ""
+ 
+    //在这里进行对比
+
+
     const [openKeys, setOpenKeys] = useState(['']);
 
     const handleOpenChange = (keys: string[]) => {
         // 展开和回收侧边栏某项菜单的时候执行这里的代码
         // const arr = keys.slice(keys.length-1, keys.length)
-
         setOpenKeys([keys[keys.length - 1]])
-
     }
 
 
