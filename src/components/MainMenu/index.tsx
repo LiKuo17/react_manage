@@ -60,6 +60,40 @@ const items: MenuItem[] = [
            
         ]
     },
+
+    {
+        label: "菜单 5",
+        key: '/page5',
+        icon: <UserOutlined />,
+        children: [
+            {
+                label: "菜单5 1",
+                key: "/page5/page501"
+            },
+            {
+                label: "菜单5 2",
+                key: "/page5/page502"
+            },
+           
+        ]
+    },
+
+    // {
+    //     label: "菜单 6",
+    //     key: '/page6',
+    //     icon: <UserOutlined />,
+    //     children: [
+    //         {
+    //             label: "菜单6 1",
+    //             key: "/page4/page601"
+    //         },
+    //         {
+    //             label: "菜单6 2",
+    //             key: "/page4/page602"
+    //         },
+           
+    //     ]
+    // },
     
 ]
 
@@ -77,12 +111,28 @@ const Comp: React.FC = () => {
     // 拿着currentRoute.pathname跟items数组的每一项的children的key值进行对比,如果找到了相等了,就要他上一级的key
     // 这个key给到openKeys数组的元素,作为初始值
 
-    let firstOpenKey:string = ""
+    let firstOpenKey: string = ""
  
     //在这里进行对比
+    function findKey(obj:{key:string}) {
+        return obj.key === currentRoute.pathname
+    }
+
+    //多对比的是多个children
+    for(let i = 0;i<items.length;i++) {
+        console.log('items[i]',items[i],items[i]!['children']);
+        
+        //判断找到找不到
+        if(items[i]!['children'] && items[i]!['children'].length > 0 && items[i]!['children'].find(findKey)){
+            firstOpenKey = items[i]!.key as string;
+            break;
+        }
+    }
+
+    // items[]['children'].find(findKey)  //这结果如果找到拿到得是找到的这个对象，转布尔值就是true
 
 
-    const [openKeys, setOpenKeys] = useState(['']);
+    const [openKeys, setOpenKeys] = useState([firstOpenKey]);
 
     const handleOpenChange = (keys: string[]) => {
         // 展开和回收侧边栏某项菜单的时候执行这里的代码

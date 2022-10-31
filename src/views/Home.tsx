@@ -13,8 +13,22 @@ const App: React.FC = () => {
     return (
         <Layout style={{ minHeight: '100vh' }}>
             {/* 左边侧边栏 */}
-            <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
-                <div className="logo" />
+            <Sider collapsible collapsed={collapsed} onCollapse={value => {
+                console.log(222222222222);
+                console.log('collapsed',collapsed);
+                
+                // if(value === false) {
+                //     let logoName = document.querySelector(".logoName")
+                //     console.log('logoName',logoName);
+                //     // logoName.setAttribute(className)
+                // }
+                setCollapsed(value)
+            }}>
+                <div className="logo" >
+                   {
+                     collapsed === false ? (<div className='logoName'>JSKUO后台管理系统</div>) : null
+                   }
+                </div>
                 <MainMenu />
             </Sider>
             {/* 右边内容 */}

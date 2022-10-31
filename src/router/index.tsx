@@ -8,6 +8,7 @@ const User = lazy(()=>import("../views/User"))
 const Page1 = lazy(()=>import("../views/page1"))
 const Page2 = lazy(()=>import("../views/page2"))
 const Page301 = lazy(()=>import("../views/Page301"))
+const Page501 = lazy(()=>import("../views/Page501"))
 //重定向组件
 import { Navigate } from "react-router-dom";
 
@@ -41,6 +42,10 @@ const routes = [
             {
                 path: "/page3/page301",
                 element: withLoadingComponent(<Page301 />)
+            },
+            {
+                path: "/page5/page501",
+                element: withLoadingComponent(<Page501 />)
             },
         ]
     },

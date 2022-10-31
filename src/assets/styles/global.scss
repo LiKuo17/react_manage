@@ -14,9 +14,24 @@ img {
 
 //首页布局样式
  .logo {
+  position: relative;
     height: 32px;
     margin: 16px;
     background: rgba(255, 255, 255, 0.3);
+    background-image: url(../钻石.png);
+    background-repeat: no-repeat;
+    background-size: 15%;
+    background-position: 10px 5px;
+  }
+  .logoName{
+    // height: 32px;
+    color: white;
+    line-height: 32px;
+    margin: 0 0 0 40px;
+    font-size: 13px;
+  }
+  .zuanshi{
+    position: absolute;
   }
   
   .site-layout .site-layout-background {
