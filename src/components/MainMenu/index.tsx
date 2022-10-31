@@ -126,7 +126,7 @@ const Comp: React.FC = () => {
         if(items[i]!['children'] && items[i]!['children'].length > 0 && items[i]!['children'].find(findKey)){
             firstOpenKey = items[i]!.key as string;
             break;
-        } 
+        }  
     }
 
     // items[]['children'].find(findKey)  //这结果如果找到拿到得是找到的这个对象，转布尔值就是true
