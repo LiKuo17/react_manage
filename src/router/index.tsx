@@ -11,6 +11,7 @@ const Page301 = lazy(()=>import("../views/Page301"))
 const Page501 = lazy(()=>import("../views/Page501"))
 //重定向组件
 import { Navigate } from "react-router-dom";
+import Login from "@/views/Login"
 
 //懒加载模式需要添加一个Loading组件
 
@@ -49,6 +50,11 @@ const routes = [
             },
         ]
     },
+    {
+        path: "/login",
+        element: <Login />
+    },
+    //登录页
     {
         path: '*',
         element: <Navigate to="/page1" />
