@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styles from "./login.module.scss";
 import initLoginBg from "./init";
 import { Button, Input, Space } from "antd";
+import './login.less'
 
 const view = () => {
   // 加载完这个组件之后
