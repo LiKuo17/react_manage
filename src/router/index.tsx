@@ -1,17 +1,21 @@
 //函数形式的写法
 import React, { lazy } from "react"
 import Home from "../views/Home"
+
 // import About from "../views/About"
 // import User from "@/views/User";
+
 const About = lazy(()=>import("../views/Page301"))
 const User = lazy(()=>import("../views/User"))
 const Page1 = lazy(()=>import("../views/page1"))
 const Page2 = lazy(()=>import("../views/page2"))
 const Page301 = lazy(()=>import("../views/Page301"))
 const Page501 = lazy(()=>import("../views/Page501"))
+
 //重定向组件
 import { Navigate } from "react-router-dom";
 import Login from "@/views/Login"
+import Page302 from "@/views/Page302"
 
 //懒加载模式需要添加一个Loading组件
 
@@ -45,9 +49,14 @@ const routes = [
                 element: withLoadingComponent(<Page301 />)
             },
             {
+                path: "/page3/page302",
+                element: withLoadingComponent(<Page302 />)
+            },
+            {
                 path: "/page5/page501",
                 element: withLoadingComponent(<Page501 />)
             },
+
         ]
     },
     {
