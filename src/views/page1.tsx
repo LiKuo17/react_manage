@@ -1,11 +1,12 @@
 import { useSelector,useDispatch } from "react-redux"
-
+import numStatus from "@/store/NumStatus"
 //ts中提供了ReturnType,用来获取函数类型的返回值
 const View = () => {
     //对num的操作
     //通过useSelector获取仓库数据
-    const {num} = useSelector((state:RootState)=>({
-        num: state.handleNum.num
+    const {num,sarr} = useSelector((state:RootState)=>({
+        num: state.handleNum.num,
+        sarr: state.handleArr.sarr
     }))
 
     //通过useDispatch修改仓库数据
@@ -20,19 +21,22 @@ const View = () => {
         // dispatch({type: "add1"})
         // dispatch({type: "add1",val: 100})
         //异步的写法  redux-thunk的用法     基本格式： dispatch(异步执行的函数)
-        dispatch((dis: Function)=>{
-            setTimeout(()=>{
-                dis({type:"add1"})
-            },1000)
-        })
+        // dispatch((dis: Function)=>{
+        //     setTimeout(()=>{
+        //         dis({type:"add1"})
+        //     },1000)
+        // })
+        // 优化
+        // 直接调用状态管理中的asyncAdd1()
+        dispatch(numStatus.asyncActions.asyncAdd1)
     }
     const changeArr = () => {
         dispatch({type:"sarrpush",val:100})
     }
     //对sarr的操作
-    const {sarr} = useSelector((state:RootState)=>({
-        sarr: state.handleArr.sarr
-    }))
+    // const {sarr} = useSelector((state:RootState)=>({
+    //     sarr: state.handleArr.sarr
+    // }))
 
     return (
         <div className="home">
