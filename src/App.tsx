@@ -34,7 +34,6 @@ function BeforeRouterEnter() {
     1.如果访问的是登录页面，并且有token，跳转到首页
     2.如果访问的不是登录页面，并且没有token，跳转到登录页面
     3.其余的都可以正常放行
-
   */
     const location =  useLocation()
     let token = localStorage.getItem("token")
